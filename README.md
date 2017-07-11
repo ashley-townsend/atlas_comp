@@ -29,7 +29,7 @@ Hint: You might want to use the [Aggregation Framework](https://docs.mongodb.com
 
 2. Of those States with populations **greater than 10 million**, which State has the **4th largest** population?
 
-3. Find the average City population for each State. Which State has the **lowest average**?
+3. Calculate the average City population, by State. Which State has the **lowest average**?
 
 Hint: You’ll only need to use two $group operations to find each State's average city population. 
 Once you have this, just sort your result set accordingly and you should have the answer!
