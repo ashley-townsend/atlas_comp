@@ -41,7 +41,10 @@ Extra Hint: State *"CT"* (Connecticut) should have an average City population of
 
 1. Need help importing your dataset into MongoDB Atlas?
 
+- You'll find it much easier to do this with the mongoimport and mongo shell tools. Both of which are avaiable when installing MongoDB. [Check this out](https://docs.mongodb.com/getting-started/shell/installation/) if you haven't already got the tools installed.
+
 - If you can’t connect to the Atlas cluster, make sure you’ve configured the Security IP Whitelist in the [Atlas GUI](https://cloud.mongodb.com)
+
 - If your mongoimport reports an error with ’SASL authentication’, but you can definitely connect (try using mongo client to test), then you might want to check you have a user with readWrite permissions:
     - [mongoimport access requirements](https://docs.mongodb.com/manual/reference/program/mongoimport/#required-access)
     - [Using mongoimport with MongoDB Atlas](https://docs.atlas.mongodb.com/import/mongoimport)
