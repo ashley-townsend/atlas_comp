@@ -6,7 +6,7 @@ Welcome to the MongoDB Atlas Competition! This is your chance to explore the tru
 
 1. Signup for [MongoDB Atlas](https://www.mongodb.com/atlas)
 
-2. Create a new M0 Free Tier cluster (and don’t forget to give it a catchy name)
+2. Create a new M0 Free Tier cluster (and don’t forget to give it a catchy name). Check out this [[screenshot of the Atlas Free Tier setup]](atlas_setup_screen.png)
 
   Hint: Make sure you provide an admin username & password at the bottom of the cluster setup page
 
@@ -34,19 +34,42 @@ Once you have this, just sort your result set accordingly and you should have th
 
 Extra Hint: State *"CT"* (Connecticut) should have an average City population of *14674.625*, and this is **not the lowest**.
 
-4. Once you’ve got the answers to the above you should have some activity on your MongoDB Atlas cluster. Head over to the [Atlas GUI](https://www.cloud.mongodb.com) and take a screenshot of the Metrics (monitoring) panel. It should look something like this
+4. Once you’ve got the answers to the above you should have some activity on your MongoDB Atlas cluster. Head over to the [Atlas GUI](https://cloud.mongodb.com) and take a screenshot of the Metrics (monitoring) panel. It should look something like [[this Atlas Metrics screenshot]](atlas_metrics_screen.png)
 
 
 ### Beware, spoilers below!
 
 1. Need help importing your dataset into MongoDB Atlas?
 
-- If you can’t connect to the Atlas cluster, make sure you’ve configured the Security IP Whitelist in the [Atlas GUI](https://www.cloud.mongodb.com)
+- If you can’t connect to the Atlas cluster, make sure you’ve configured the Security IP Whitelist in the [Atlas GUI](https://cloud.mongodb.com)
 - If your mongoimport reports an error with ’SASL authentication’, but you can definitely connect (try using mongo client to test), then you might want to check you have a user with readWrite permissions:
     - [mongoimport access requirements](https://docs.mongodb.com/manual/reference/program/mongoimport/#required-access)
     - [Using mongoimport with MongoDB Atlas](https://docs.atlas.mongodb.com/import/mongoimport)
 
-2. Struggling to get the States with populations over 10 million?
+2. Before you start building your aggregation operation, you might want an idea of what the data looks like. Using the [mongo shell client](https://docs.mongodb.com/getting-started/shell/client/), you can quickly determine the type of schema you're working with.
+
+```
+AshsCatchyClusterName-shard-0:PRIMARY> db.zipcodes.findOne()
+{
+    "_id" : "01001",
+    "city" : "AGAWAM",
+    "loc" : [
+        -72.622739,
+        42.070206
+    ],
+    "pop" : 15338,
+    "state" : "MA"
+}
+
+AshsCatchyClusterName-shard-0:PRIMARY> db.zipcodes.find().limit(5)
+{ "_id" : "01001", "city" : "AGAWAM", "loc" : [ -72.622739, 42.070206 ], "pop" : 15338, "state" : "MA" }
+{ "_id" : "01002", "city" : "CUSHMAN", "loc" : [ -72.51565, 42.377017 ], "pop" : 36963, "state" : "MA" }
+{ "_id" : "01005", "city" : "BARRE", "loc" : [ -72.108354, 42.409698 ], "pop" : 4546, "state" : "MA" }
+{ "_id" : "01007", "city" : "BELCHERTOWN", "loc" : [ -72.410953, 42.275103 ], "pop" : 10579, "state" : "MA" }
+{ "_id" : "01008", "city" : "BLANDFORD", "loc" : [ -72.936114, 42.182949 ], "pop" : 1240, "state" : "MA" }
+```
+
+3. Struggling to get the States with populations over 10 million?
 
 - The equivalent SQL for this aggregation looks like:
 ```
@@ -56,8 +79,8 @@ GROUP BY state
 HAVING totalPop >= (10*1000*1000)
 ```
 
-3. If you can't quite combine everything into one aggregation command, perhaps try splitting it out and storing the results in a new collection. You can do this with the `$out` operator. [Details here](https://docs.mongodb.com/manual/reference/operator/aggregation/out/).
+4. If you can't quite combine everything into one aggregation command, perhaps try splitting it out and storing the results in a new collection. You can do this with the `$out` operator. [Details here](https://docs.mongodb.com/manual/reference/operator/aggregation/out/).
 
-4. You don't necessarily need to sort all of your results in the aggregation stage. Perhaps try storing the result in a new collection (with step 3 above), and then using an easy `.sort({field_name:1})` or `.sort({field_name:-1})` depending on your sort direction. You can also do a `.count()` in your query for ease of use. Example: `db.zipcodes_temp.find().limit(1).sort({avgCityPop:1})` might be handy to find the State with the lowest average city population!
+5. You don't necessarily need to sort all of your results in the aggregation stage. Perhaps try storing the result in a new collection (with step 3 above), and then using an easy `.sort({field_name:1})` or `.sort({field_name:-1})` depending on your sort direction. You can also do a `.count()` in your query for ease of use. Example: `db.zipcodes_temp.find().limit(1).sort({avgCityPop:1})` might be handy to find the State with the lowest average city population!
 
-5. This is an Atlas challenge, and not a test of your aggregation skills. If you're still really stuck there is no shame in using [this link](https://docs.mongodb.com/manual/tutorial/aggregation-zip-code-data-set/) to get the correct aggregation operation for each challenge.
+6. This is an Atlas challenge, and not a test of your aggregation skills. If you're still really stuck there is no shame in using [this link](https://docs.mongodb.com/manual/tutorial/aggregation-zip-code-data-set/) to get the correct aggregation operation for each challenge.
