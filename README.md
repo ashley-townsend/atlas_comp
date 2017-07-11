@@ -2,7 +2,7 @@
 
 Welcome to the MongoDB Atlas Competition! This is your chance to explore the true power of MongoDB Atlas, for FREE, and win some awesome prizes... Good luck!
 
-### Step 1 - Setup
+### Step 1 - Atlas Setup
 
 1. Signup for [MongoDB Atlas](https://www.mongodb.com/atlas)
 
@@ -19,7 +19,7 @@ Hint: mongoimport can be run from your local computer and pointed directly at Mo
 
 5. Once you’ve got your dataset up and running in MongoDB Atlas, use the ‘mongo’ CLI (or create a program for extra points) to find the answers to these problems...
 
-### Step 2 - Challenges
+### Step 2 - The Challenges
 
 Hint: You might want to use the [Aggregation Framework](https://docs.mongodb.com/manual/aggregation/) for these...
 
@@ -36,8 +36,17 @@ Extra Hint: State *"CT"* (Connecticut) should have an average City population of
 
 4. Once you’ve got the answers to the above you should have some activity on your MongoDB Atlas cluster. Head over to the [Atlas GUI](https://cloud.mongodb.com) and take a screenshot of the Metrics (monitoring) panel. It should look something like [[this Atlas Metrics screenshot]](atlas_metrics_screen.png)
 
+### Step 3 - Winning!
 
-### Beware, spoilers below!
+Assuming you've managed to complete the above, you are **already a winner!** But... If you'd like to win some prizes too you should let us know about it before the deadline: 9am BST - Tuesday 18th July 2017.
+
+Send the following info to ashley@mongodb.com
+
+1. The answers to Challenge 1, 2 and 3.
+2. The screenshot of your cluster activity
+
+
+#### Beware, spoilers below!
 
 1. Need help importing your dataset into MongoDB Atlas?
 
