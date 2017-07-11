@@ -1,6 +1,8 @@
 # MongoDB Atlas Competition
 
-Welcome to the MongoDB Atlas Competition! This is your chance to explore the true power of MongoDB Atlas, for FREE, and win some awesome prizes... Good luck!
+Welcome to the MongoDB Atlas Competition! This is your chance to explore the true power of MongoDB Atlas, for FREE, and win some awesome prizes. **The first five people to complete the challenges below will win $100 of free MongoDB Atlas credits!** 
+
+Good luck!
 
 ### Step 1 - Atlas Setup
 
@@ -38,15 +40,15 @@ Extra Hint: State *"CT"* (Connecticut) should have an average City population of
 
 ### Step 3 - Winning!
 
-Assuming you've managed to complete the above, you are **already a winner!** But... If you'd like to win some prizes too you should let us know about it before the deadline: 9am BST - Tuesday 18th July 2017.
+Assuming you've managed to complete the above, you are **already a winner!** But... If you'd like to win some prizes too you should let us know about it before the deadline: **9am BST - Tuesday 18th July 2017**. The first 5 people will get $100 of MongoDB Atlas credits!
 
-Send the following info to ashley@mongodb.com
+Send the following info to: emea-email@mongodb.com
 
 1. The answers to Challenge 1, 2 and 3.
 2. The screenshot of your cluster activity
 
 
-#### Beware, spoilers below!
+### Beware, spoilers below!
 
 1. Need help importing your dataset into MongoDB Atlas?
 
