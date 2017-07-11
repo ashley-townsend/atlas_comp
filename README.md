@@ -95,6 +95,6 @@ HAVING totalPop >= (10*1000*1000)
 
 4. If you can't quite combine everything into one aggregation command, perhaps try splitting it out and storing the results in a new collection. You can do this with the `$out` operator. [Details here](https://docs.mongodb.com/manual/reference/operator/aggregation/out/).
 
-5. You don't necessarily need to sort all of your results in the aggregation stage. Perhaps try storing the result in a new collection (with step 3 above), and then using an easy `.sort({field_name:1})` or `.sort({field_name:-1})` depending on your sort direction. You can also do a `.count()` in your query for ease of use. Example: `db.zipcodes_temp.find().limit(1).sort({avgCityPop:1})` might be handy to find the State with the lowest average city population!
+5. You don't necessarily need to sort all of your results in the aggregation stage. Perhaps try storing the result in a new collection (with step 4 above), and then using an easy `.sort({field_name:1})` or `.sort({field_name:-1})` depending on your sort direction. You can also do a `.count()` in your query for ease of use. Example: `db.zipcodes_temp.find().limit(1).sort({avgCityPop:1})` might be handy to find the State with the lowest average city population!
 
 6. This is an Atlas challenge, and not a test of your aggregation skills. If you're still really stuck there is no shame in using [this link](https://docs.mongodb.com/manual/tutorial/aggregation-zip-code-data-set/) to get the correct aggregation operation for each challenge.
